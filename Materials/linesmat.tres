@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://Textures/images.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=3]
+
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform sampler2D screen : hint_albedo;
+uniform float brightness: hint_range(0,0.1);
+uniform float size: hint_range(0.1,2.0);
+
+void fragment()
+{
+	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	COLOR.rgb += texture(screen, SCREEN_UV * size).rgb * brightness;
+}"
+
+[resource]
+
+render_priority = 0
+shader = SubResource( 3 )
+shader_param/brightness = 0.034
+shader_param/size = 1.942
+shader_param/screen = ExtResource( 1 )
+_sections_unfolded = [ "shader_param" ]
+

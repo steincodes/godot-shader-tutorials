@@ -1,0 +1,40 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://Textures/test.jpg" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform sampler2D displace : hint_albedo;
+uniform float dispAmt: hint_range(0,0.1);
+uniform float abberationAmtX: hint_range(0,0.1);
+uniform float abberationAmtY: hint_range(0,0.1);
+uniform float dispSize: hint_range(0.1, 2.0);
+uniform float maxAlpha : hint_range(0.1,1.0);
+
+void fragment()
+{
+	//displace effect
+	vec4 disp = texture(displace, SCREEN_UV * dispSize);
+	vec2 newUV = SCREEN_UV + disp.xy * dispAmt;
+	//abberation
+	COLOR.r = texture(SCREEN_TEXTURE, newUV - vec2(abberationAmtX,abberationAmtY)).r; 
+	COLOR.g = texture(SCREEN_TEXTURE, newUV).g; 
+	COLOR.b = texture(SCREEN_TEXTURE, newUV + vec2(abberationAmtX,abberationAmtY)).b;
+	COLOR.a = texture(SCREEN_TEXTURE, newUV).a * maxAlpha;
+	}"
+
+[resource]
+
+render_priority = 0
+shader = SubResource( 1 )
+shader_param/dispAmt = 0.005
+shader_param/abberationAmtX = 0.005
+shader_param/abberationAmtY = 0.006
+shader_param/dispSize = 0.332
+shader_param/maxAlpha = 1.0
+shader_param/displace = ExtResource( 1 )
+_sections_unfolded = [ "shader_param" ]
+

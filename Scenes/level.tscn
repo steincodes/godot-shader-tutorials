@@ -1,0 +1,215 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/shader_test.gd" type="Script" id=2]
+[ext_resource path="res://Shaders/basic.shader" type="Shader" id=3]
+
+[sub_resource type="Shader" id=1]
+
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform vec4 color : hint_color;
+
+void fragment()
+{
+	COLOR = color; 
+	//COLOR.abrg = texture(TEXTURE , UV);
+	//COLOR.gr = vec2(1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = SubResource( 1 )
+shader_param/color = Color( 0.589844, 0.322571, 0.322571, 1 )
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="Shader" id=3]
+
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+void fragment()
+{
+	COLOR = vec4(1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+
+render_priority = 0
+shader = SubResource( 3 )
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="Shader" id=5]
+
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+//uniform vec4 color : hint_color;
+
+void fragment()
+{
+	COLOR.xy = UV;
+	COLOR.z = 0.0; 
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+
+render_priority = 0
+shader = SubResource( 5 )
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="Shader" id=7]
+
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+//uniform vec4 color : hint_color;
+
+void fragment()
+{
+	COLOR = texture(TEXTURE , UV);
+	COLOR.xy += UV;  
+}"
+
+[sub_resource type="ShaderMaterial" id=8]
+
+render_priority = 0
+shader = SubResource( 7 )
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="ShaderMaterial" id=9]
+
+render_priority = 0
+shader = ExtResource( 3 )
+shader_param/color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="Shader" id=10]
+
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform vec4 color : hint_color;
+
+void fragment()
+{
+	COLOR.rgba = texture(TEXTURE , UV);
+	COLOR.xyz += color.xyz; 
+}"
+
+[sub_resource type="ShaderMaterial" id=11]
+
+render_priority = 0
+shader = SubResource( 10 )
+shader_param/color = Color( 0, 0.102539, 0.65625, 1 )
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="Shader" id=12]
+
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+//uniform vec4 color : hint_color;
+
+void fragment()
+{
+	//COLOR = texture(TEXTURE , UV);
+	COLOR.xy = UV; 
+	//COLOR.gr = vec2(1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=13]
+
+render_priority = 0
+shader = SubResource( 12 )
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="Shader" id=14]
+
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+//uniform vec4 color : hint_color;
+
+void fragment()
+{
+	//COLOR = color; 
+	COLOR = texture(TEXTURE , UV);
+	//COLOR.gr = vec2(1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=15]
+
+render_priority = 0
+shader = SubResource( 14 )
+_sections_unfolded = [ "shader_param" ]
+
+[node name="level" type="Node2D"]
+
+[node name="icon" type="Sprite" parent="." index="0"]
+
+material = SubResource( 2 )
+position = Vector2( 345.036, 83.5159 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Material" ]
+
+[node name="icon4" type="Sprite" parent="." index="1"]
+
+material = SubResource( 4 )
+position = Vector2( 249.933, 85.6773 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Material" ]
+
+[node name="icon5" type="Sprite" parent="." index="2"]
+
+material = SubResource( 6 )
+position = Vector2( 535.663, 85.8286 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Material" ]
+
+[node name="icon6" type="Sprite" parent="." index="3"]
+
+material = SubResource( 8 )
+position = Vector2( 347.197, 184.563 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Material" ]
+
+[node name="icon7" type="Sprite" parent="." index="4"]
+
+material = SubResource( 9 )
+position = Vector2( 446.083, 185.104 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Material" ]
+
+[node name="icon8" type="Sprite" parent="." index="5"]
+
+material = SubResource( 11 )
+position = Vector2( 535.783, 184.023 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Material" ]
+
+[node name="icon2" type="Sprite" parent="." index="6"]
+
+material = SubResource( 13 )
+position = Vector2( 442.841, 85.6773 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Material" ]
+
+[node name="icon3" type="Sprite" parent="." index="7"]
+
+material = SubResource( 15 )
+position = Vector2( 252.042, 186.033 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Material" ]
+
+
