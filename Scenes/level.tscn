@@ -146,7 +146,7 @@ render_priority = 0
 shader = SubResource( 14 )
 _sections_unfolded = [ "shader_param" ]
 
-[node name="level" type="Node2D"]
+[node name="level" type="Node2D" index="0"]
 
 [node name="icon" type="Sprite" parent="." index="0"]
 

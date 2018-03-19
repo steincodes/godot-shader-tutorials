@@ -11,4 +11,4 @@ config_version=3
 [application]
 
 config/name="Shaders-Tutorials"
-config/icon="res://icon.png"
+config/icon="res://theicon.png"
