@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/images.png-92d05d86d2155ba4354cae1e03de1e9e.stex"
+path="res://.import/blinds.png-f636c1eb697ef187d3cc3060691e136a.stex"
 
 [deps]
 
-source_file="res://Textures/images.png"
+source_file="res://Textures/blinds.png"
 source_md5="20eef34a169e4c0616eb3a5b1d43b37a"
 
-dest_files=[ "res://.import/images.png-92d05d86d2155ba4354cae1e03de1e9e.stex" ]
+dest_files=[ "res://.import/blinds.png-f636c1eb697ef187d3cc3060691e136a.stex" ]
 dest_md5="96c4e5cbe3315da1f7b2e5f9653640fa"
 
 [params]

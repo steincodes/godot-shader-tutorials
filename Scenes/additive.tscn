@@ -31,7 +31,7 @@ shader = SubResource( 2 )
 shader_param/color = Color( 0.609375, 0.609375, 0.609375, 1 )
 _sections_unfolded = [ "shader_param" ]
 
-[node name="Spatial" type="Spatial"]
+[node name="Spatial" type="Spatial" index="0"]
 
 [node name="cube" type="MeshInstance" parent="." index="0"]
 
