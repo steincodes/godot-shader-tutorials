@@ -1,19 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Materials/outline.tres" type="Material" id=1]
-[ext_resource path="res://Textures/Player.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Player.png" type="Texture" id=1]
+[ext_resource path="res://Textures/rect.png" type="Texture" id=2]
 [ext_resource path="res://Shaders/outline.shader" type="Shader" id=3]
-[ext_resource path="res://Textures/rect.png" type="Texture" id=4]
-[ext_resource path="res://Textures/test.png" type="Texture" id=5]
-
-[sub_resource type="ShaderMaterial" id=1]
-
-render_priority = 0
-shader = ExtResource( 3 )
-shader_param/intensity = 130
-shader_param/precision = 0.015
-shader_param/outline_color = null
-_sections_unfolded = [ "shader_param" ]
+[ext_resource path="res://Textures/test.png" type="Texture" id=4]
 
 [sub_resource type="ShaderMaterial" id=2]
 
@@ -24,30 +14,77 @@ shader_param/precision = 0.015
 shader_param/outline_color = null
 _sections_unfolded = [ "shader_param" ]
 
+[sub_resource type="ShaderMaterial" id=3]
+
+render_priority = 0
+shader = ExtResource( 3 )
+shader_param/intensity = 200
+shader_param/precision = 0.02
+shader_param/outline_color = Color( 0.152344, 0.0160675, 0.0160675, 1 )
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="ViewportTexture" id=4]
+
+resource_local_to_scene = true
+flags = 0
+viewport_path = NodePath("Viewport")
+
 [node name="outline" type="Node2D" index="0"]
 
-[node name="Player" type="Sprite" parent="." index="0"]
+[node name="Viewport" type="Viewport" parent="." index="0"]
 
-material = ExtResource( 1 )
-position = Vector2( 526.618, 279.146 )
+arvr = false
+size = Vector2( 600, 600 )
+own_world = false
+world = null
+transparent_bg = true
+msaa = 0
+hdr = false
+disable_3d = false
+usage = 1
+debug_draw = 0
+render_target_v_flip = true
+render_target_clear_mode = 0
+render_target_update_mode = 3
+audio_listener_enable_2d = false
+audio_listener_enable_3d = false
+physics_object_picking = false
+gui_disable_input = false
+gui_snap_controls_to_pixels = true
+shadow_atlas_size = 0
+shadow_atlas_quad_0 = 2
+shadow_atlas_quad_1 = 2
+shadow_atlas_quad_2 = 3
+shadow_atlas_quad_3 = 4
+_sections_unfolded = [ "Render Target" ]
+
+[node name="Player" type="Sprite" parent="Viewport" index="0"]
+
+position = Vector2( 250, 250 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Material" ]
-
-[node name="see_on_startup" type="Sprite" parent="." index="1"]
-
-material = SubResource( 1 )
-position = Vector2( 296.335, 284.051 )
-scale = Vector2( 8, 8 )
-texture = ExtResource( 4 )
+texture = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="play the game" type="Sprite" parent="." index="2"]
+[node name="see_on_startup" type="Sprite" parent="Viewport" index="1"]
+
+position = Vector2( 250, 360 )
+scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="play the game" type="Sprite" parent="." index="1"]
 
 material = SubResource( 2 )
 position = Vector2( 744.44, 282.529 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Material" ]
+
+[node name="antialiased square2" type="Sprite" parent="." index="2"]
+
+material = SubResource( 3 )
+position = Vector2( 530.16, 426.694 )
+texture = SubResource( 4 )
+_sections_unfolded = [ "Material", "Transform" ]
 
 

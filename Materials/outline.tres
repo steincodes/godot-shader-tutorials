@@ -6,7 +6,7 @@
 
 render_priority = 0
 shader = ExtResource( 1 )
-shader_param/intensity = 130
+shader_param/intensity = 37
 shader_param/precision = 0.015
 shader_param/outline_color = null
 _sections_unfolded = [ "shader_param" ]
