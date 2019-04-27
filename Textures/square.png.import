@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/square.png-03a6d7a416e72c19b2f7cb977484b6e9.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Textures/square.png"
-source_md5="9535b208d94934210453aff642d6c61b"
-
 dest_files=[ "res://.import/square.png-03a6d7a416e72c19b2f7cb977484b6e9.stex" ]
-dest_md5="f12a62d5252f490c3681d0e91f5d8e41"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=false

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/ModifiedTransition.gd" type="Script" id=1]
+[ext_resource path="res://Shaders/transition.shader" type="Shader" id=2]
+[ext_resource path="res://Textures/gradient_conical.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/transitioneffect.gd" type="Script" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/cutoff = 1.0
+shader_param/offset = 1.2
+shader_param/color = Color( 0, 0, 0, 1 )
+shader_param/mask = ExtResource( 3 )
+
+[node name="TransitionEffect" type="Node"]
+script = ExtResource( 1 )
+clearColor = Color( 1, 1, 1, 1 )
+transitionColor = Color( 0.396078, 0.203922, 0.203922, 1 )
+
+[node name="ScreenShader" type="ColorRect" parent="."]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -131.0
+margin_top = -41.0
+text = "RESET"
+[connection signal="button_up" from="Button" to="ScreenShader" method="_on_Button_button_up"]
