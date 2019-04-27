@@ -1,4 +1,6 @@
 # godot-shader-tutorials
-Basic godot shader tutorial projects from my youtube tutorials.
 
-Date Updated: 30-04-2018
+This is the dev branch, i.e. the branch all the new WIP shaders will be present.
+I will merge the branch ever so frequently to keep them both upto date.
+
+**--->  WIP BRANCH**
